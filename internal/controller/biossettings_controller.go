@@ -256,7 +256,7 @@ func (r *BIOSSettingsReconciler) reconcile(ctx context.Context, settings *metalv
 			return ctrl.Result{}, err
 		}
 		// Check if the current BIOSSettings version is newer and update reference if it is newer
-		// todo : handle version checks correctly
+		// TODO: handle version checks correctly
 		if referredBIOSSetting.Spec.Version < settings.Spec.Version {
 			log.V(1).Info("Updating BIOSSettings reference to the latest BIOS version")
 			if err := r.patchBIOSSettingsRefForServer(ctx, server, settings); err != nil {
@@ -923,7 +923,7 @@ func (r *BIOSSettingsReconciler) applyBIOSSettings(ctx context.Context, bmcClien
 	// if no reboot is required, most likely the settings is already applied,
 	// hence no pending task will be present.
 	if len(pendingSettings) == 0 && skipReboot.Status == metav1.ConditionFalse {
-		// todo: fail after X amount of time
+		// TODO: fail after X amount of time
 		log.V(1).Info("BIOSSettings update issued to BMC was not accepted. retrying....")
 		return errors.Join(err, fmt.Errorf("bios setting issued to bmc not accepted"))
 	}
@@ -1020,8 +1020,8 @@ func (r *BIOSSettingsReconciler) handleFailedState(ctx context.Context, settings
 		log.V(1).Info("Retrying reconciliation")
 		biosSettingsBase := settings.DeepCopy()
 		settings.Status.State = metalv1alpha1.BIOSSettingsStatePending
-		settings.Status.FlowState = []metalv1alpha1.BIOSSettingsFlowStatus{}
-		settings.Status.Conditions = []metav1.Condition{}
+		// todo: add FlowState reset after the #403 is merged
+		settings.Status.Conditions = nil
 		annotations := settings.GetAnnotations()
 		delete(annotations, metalv1alpha1.OperationAnnotation)
 		settings.SetAnnotations(annotations)

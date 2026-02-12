@@ -414,7 +414,7 @@ func (r *ServerReconciler) handleAvailableState(ctx context.Context, bmcClient b
 
 func (r *ServerReconciler) handleReservedState(ctx context.Context, bmcClient bmc.BMC, server *metalv1alpha1.Server) (bool, error) {
 	log := ctrl.LoggerFrom(ctx)
-	// TODO: This needs be reworked later as the Server cleanup has to happen here. For now we just transition the server
+	// TODO: This needs to be reworked later as the Server cleanup has to happen here. For now we just transition the server
 	// 		 back to available state.
 	if server.Spec.ServerClaimRef == nil {
 		if modified, err := r.patchServerState(ctx, server, metalv1alpha1.ServerStateAvailable); err != nil || modified {

@@ -1,9 +1,9 @@
 # BMCs
 
-The BMC Custom Resource Definition (CRD) represents a Baseboard Management Controller. 
-It is designed to manage and monitor the state of BMC devices and the systems (servers) they control. The primary 
-purpose of the BMC resource is to reconcile the BMC state and detect all systems it manages by creating the 
-corresponding [`Server`](servers.md) resources.
+The BMC Custom Resource Definition (CRD) represents a Baseboard Management Controller.
+It is designed to manage and monitor the state of BMC devices and the systems (servers) they control. The primary
+purpose of the BMC resource is to reconcile the BMC state and detect all systems it manages by creating the
+corresponding [Server](servers.md) resources.
 
 ## Example BMC Resource
 
@@ -76,7 +76,7 @@ data:
 The BMC CRD is essential for managing and monitoring BMC devices. It is used to:
 
 - **Reconcile BMC State**: Continuously monitor the BMC's status and update its state.
-- **Detect Managed Systems**: Identify all systems (servers) managed by the BMC and create corresponding [`Server`](servers.md) resources.
+- **Detect Managed Systems**: Identify all systems (servers) managed by the BMC and create corresponding [Server](servers.md) resources.
 - **Automate Hardware Management**: Enable automated power control, firmware updates, and health monitoring of physical servers through the BMC.
 - **Create DNS Record**: Automatically create DNS record using a provided Go YAML template via the managers `dns-record-template-path` flag.
 
@@ -84,17 +84,17 @@ The BMC CRD is essential for managing and monitoring BMC devices. It is used to:
 
 The `BMCReconciler` is a controller that processes BMC resources to:
 
-1. **Access BMC Device**: Uses the `endpointRef` or `endpoint`, along with `bmcSecretRef`, to establish a connection 
+1. **Access BMC Device**: Uses the `endpointRef` or `endpoint`, along with `bmcSecretRef`, to establish a connection
 with the BMC using the specified `protocol`.
 
-2. **Retrieve BMC Information**: Gathers details such as manufacturer, model, serial number, firmware version, and 
+2. **Retrieve BMC Information**: Gathers details such as manufacturer, model, serial number, firmware version, and
 power state.
 
 3. **Update BMCStatus**: Populates the `status` field of the BMC resource with the retrieved information.
 
 4. **Detect Managed Systems**: Identifies all systems (servers) that the BMC manages.
 
-5. **Create Server Resources**: For each detected system, the `BMCReconciler` creates a corresponding [`Server`](servers.md)
+5. **Create Server Resources**: For each detected system, the `BMCReconciler` creates a corresponding [Server](servers.md)
 resource to represent the physical server.
 
 6. **Create BMC DNS Record**: If a DNS record template path is provided via the managers `dns-record-template-path` flag,

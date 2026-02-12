@@ -5,14 +5,14 @@
 Install the `metalctl` CLI from source without cloning the repository. Requires [Go](https://go.dev) to be installed.
 
 ```bash
-go install https://github.com/ironcore-dev/metal-operator/cmd/metalctl@latest
+go install github.com/ironcore-dev/metal-operator/cmd/metalctl@latest
 ```
 
 ## Commands
 
 ### visualizer, vis
 
-The `metalctl visualalizer` (or `metalctl vis`) command allows you to visualize the topology of your bare metal `Server`s.
+The `metalctl visualizer` (or `metalctl vis`) command allows you to visualize the topology of your bare metal Servers.
 
 To run the visualizer run
 
@@ -26,9 +26,9 @@ You can configure the port by setting the `--port` flag.
 
 ### console
 
-The `metalctl console` command allows you to access the serial console of a `Server`.
+The `metalctl console` command allows you to access the serial console of a Server.
 
-To open a connection to the `Servers` serial console run
+To open a connection to the Server's serial console run
 
 ```bash
 metalctl console my-server
@@ -44,7 +44,7 @@ it is possible provide a custom `known_hosts` file via the `--known-hosts-file` 
 
 ### move
 
-The `metalctl move` command allows to move the metal Custom Resources, like e.g. `Endpoint`, `BMC`, `Server`, etc. from one
+The `metalctl move` command allows you to move the metal Custom Resources, like e.g. Endpoint, BMC, Server, etc. from one
 cluster to another.
 
 > Warning!:

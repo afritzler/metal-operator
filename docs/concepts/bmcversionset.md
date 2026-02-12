@@ -1,20 +1,20 @@
 # BMCVersionSet
 
-`BMCVersionSet` represents a Set of `BMCVersion` to perform operation for all selected physical BMC through labels. It updates the BMC Version on all selected physical server's BMC through `BMCVersion`. 
+BMCVersionSet represents a set of BMCVersion to perform operations for all selected physical BMCs through labels. It updates the BMC version on all selected physical servers' BMC through BMCVersion.
 
 ## Key Points
 
-- `BMCVersionSet` uses label selector to select the `BMC` to create `BMCVersion` for.
-- `BMCVersionSet` creates `BMCVersion` for each BMC which matches the label.
-    - Only one `BMCVersion` can be active per `BMC` at a time. 
-- `BMCVersionSet` monitors changes to `BMC` resource and creates/deletes `BMCVersion`
+- BMCVersionSet uses a label selector to select the BMCs to create BMCVersion for.
+- BMCVersionSet creates BMCVersion for each BMC which matches the label.
+    - Only one BMCVersion can be active per BMC at a time.
+- BMCVersionSet monitors changes to BMC resources and creates/deletes BMCVersion.
 
 ## Workflow
 
-1. `BMCVersionSet` filters `BMC` matching the provided label
-2. `BMCVersionSet` creates `BMCVersion` CRD for each `BMC` selected
-3. `BMCVersionSet` monitors the created `BMCVersion` and updates the status
-4. `BMCVersionSet` creates or deletes `BMCVersion` based on the changes to `BMC` CRD.
+1. BMCVersionSet filters BMCs matching the provided label.
+2. BMCVersionSet creates a BMCVersion CRD for each BMC selected.
+3. BMCVersionSet monitors the created BMCVersion and updates the status.
+4. BMCVersionSet creates or deletes BMCVersion based on the changes to BMC CRDs.
 
 ## Example
 
@@ -32,6 +32,6 @@ spec:
     updatePolicy: Normal
     serverMaintenancePolicy: OwnerApproval
   bmcSelector:
-    matchLabels: 
+    matchLabels:
       manufacturer: "dell"
 ```

@@ -403,7 +403,7 @@ func (r *BIOSVersionReconciler) processInProgressState(ctx context.Context, bmcC
 			return false, err
 		}
 		if currentBiosVersion != biosVersion.Spec.Version {
-			// todo: add timeout
+			// TODO: add timeout
 			log.V(1).Info("BIOS version not updated", "Version", currentBiosVersion, "DesiredVersion", biosVersion.Spec.Version)
 			if condition.Reason == "" {
 				if err := r.Conditions.Update(
@@ -773,7 +773,7 @@ func (r *BIOSVersionReconciler) checkUpdateBiosUpgradeStatus(
 		return true, nil
 	}
 
-	// todo: Fail the state after certain timeout
+	// TODO: Fail the state after certain timeout
 	return false, r.updateStatus(ctx, biosVersion, biosVersion.Status.State, upgradeCurrentTaskStatus, completedCondition)
 }
 

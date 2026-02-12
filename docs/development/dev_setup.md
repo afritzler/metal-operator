@@ -55,10 +55,10 @@ make tilt-up
 This `Makefile` directive will:
 - create a local Kind cluster with local registry
 - install cert-manager
-- install [boot-operator](https://github.com/ironcore-dev/boot-operator) to reconcile the `ServerBootConfiguration` CRD
+- install [boot-operator](https://github.com/ironcore-dev/boot-operator) to reconcile the ServerBootConfiguration CRD
 - start the `metal-operator` controller and Redfish mock server as a sidecar container
 - an Endpoint resource is created to point to the Redfish mock server
-- this will result in `Server` resources being created and reconciled by the `metal-operator`
+- this will result in Server resources being created and reconciled by the `metal-operator`
 
 ```shell
 ‹kind-metal› kubectl get server

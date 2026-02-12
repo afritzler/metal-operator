@@ -357,7 +357,7 @@ func (r *BMCVersionReconciler) handleUpgradeInProgressState(
 			return ctrl.Result{}, err
 		}
 		if currentBMCVersion != bmcVersion.Spec.Version {
-			// todo: add timeout
+			// TODO: add timeout
 			log.V(1).Info("BMC version not updated", "current BMC Version", currentBMCVersion, "Required Version", bmcVersion.Spec.Version)
 			if condition.Reason == "" {
 				if err := r.Conditions.Update(
@@ -408,7 +408,7 @@ func (r *BMCVersionReconciler) getBMCVersionFromBMC(ctx context.Context, bmcClie
 
 func (r *BMCVersionReconciler) checkIfMaintenanceGranted(ctx context.Context, bmcClient bmc.BMC, bmcVersion *metalv1alpha1.BMCVersion) bool {
 	log := ctrl.LoggerFrom(ctx)
-	// todo length
+	// TODO: check length
 	if bmcVersion.Spec.ServerMaintenanceRefs == nil {
 		return true
 	}
@@ -977,7 +977,7 @@ func (r *BMCVersionReconciler) checkBMCUpgradeStatus(
 		// the job has stalled or slow, we need to requeue with exponential backoff
 		return ctrl.Result{RequeueAfter: r.ResyncInterval}, nil
 	}
-	// todo: Fail the state after certain timeout
+	// TODO: Fail the state after certain timeout
 	err = r.patchBMCVersionStatusAndCondition(
 		ctx,
 		bmcVersion,

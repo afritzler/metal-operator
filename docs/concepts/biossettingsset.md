@@ -1,20 +1,20 @@
 # BIOSSettingsSet
 
-`BIOSSettingsSet` represents a Set of `BIOSSettings` to perform operation for all selected physical server through labels. It updates the bios Settings on all selected physical server's BIOS through `BIOSSettings`. 
+BIOSSettingsSet represents a set of BIOSSettings to perform operations for all selected physical servers through labels. It updates the BIOS settings on all selected physical servers' BIOS through BIOSSettings.
 
 ## Key Points
 
-- `BIOSSettingsSet` uses label selector to select the `Servers` to create `BIOSSettings` for.
-- `BIOSSettingsSet` creates `BIOSSettings` for each server which matches the label.
-    - Only one `BIOSSettings` can be active per `Server` at a time. 
-- `BIOSSettingsSet` monitors changes to `Server` resource and creates/deletes `BIOSSettings`
+- BIOSSettingsSet uses a label selector to select the Servers to create BIOSSettings for.
+- BIOSSettingsSet creates BIOSSettings for each server which matches the label.
+    - Only one BIOSSettings can be active per Server at a time.
+- BIOSSettingsSet monitors changes to Server resources and creates/deletes BIOSSettings.
 
 ## Workflow
 
-1. `BIOSSettingsSet` filters `Servers` matching the provided label
-2. `BIOSSettingsSet` creates `BIOSSettings` CRD for each `Server` selected
-3. `BIOSSettingsSet` monitors the created `BIOSSettings` and updates the status
-4. `BIOSSettingsSet` creates or deletes `BIOSSettings` based on the changes to `Server` CRD
+1. BIOSSettingsSet filters Servers matching the provided label.
+2. BIOSSettingsSet creates a BIOSSettings CRD for each Server selected.
+3. BIOSSettingsSet monitors the created BIOSSettings and updates the status.
+4. BIOSSettingsSet creates or deletes BIOSSettings based on the changes to Server CRDs.
 
 ## Example
 
@@ -30,6 +30,6 @@ spec:
     settings:
       foo: bar
   serverSelector:
-    matchLabels: 
+    matchLabels:
       manufacturer: "dell"
 ```

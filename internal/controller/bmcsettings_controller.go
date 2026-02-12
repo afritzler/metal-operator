@@ -228,7 +228,7 @@ func (r *BMCSettingsReconciler) reconcile(
 	}
 
 	// if object does not refer to BMC object - stop reconciliation
-	// todo length
+	// TODO: check length
 	if bmcSetting.Spec.BMCRef == nil {
 		log.V(1).Info("Object does not refer to BMC object")
 		return ctrl.Result{}, nil
@@ -260,7 +260,7 @@ func (r *BMCSettingsReconciler) reconcile(
 			return ctrl.Result{}, err
 		}
 		// check if the current BMCSettings version is newer and update reference if it is newer
-		// todo : handle version checks correctly
+		// TODO: handle version checks correctly
 		if referredBMCSettings.Spec.Version < bmcSetting.Spec.Version {
 			log.V(1).Info("Updating BMCSettings reference to the latest BMC version")
 			if err := r.patchBMCSettingsRefOnBMC(ctx, BMC, &corev1.LocalObjectReference{Name: bmcSetting.Name}); err != nil {
@@ -673,7 +673,7 @@ func (r *BMCSettingsReconciler) handleFailedState(
 		}
 		return nil
 	}
-	// todo: revisit this logic to either create maintenance if not present, put server in Error state on failed bmc settings maintenance
+	// TODO: revisit this logic to either create maintenance if not present, put server in Error state on failed bmc settings maintenance
 	log.V(1).Info("Failed to update BMC setting", "ctx", ctx, "bmcSetting", bmcSetting, "BMC", BMC)
 	return nil
 }
