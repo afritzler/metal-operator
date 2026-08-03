@@ -52,6 +52,12 @@ const (
 	// when set on it.
 	OperationAnnotationRotateCredentials = "rotate-credentials"
 
+	// ShardLabel assigns a resource to an operator shard. An operator instance
+	// started with --shard=<name> only watches and reconciles resources carrying
+	// this label with value <name>. An instance without --shard only handles
+	// resources that do not carry the label at all.
+	ShardLabel = "metal.ironcore.dev/shard"
+
 	// OperationAnnotationPark requests that a Server be parked out of the ServerClaim lifecycle so an
 	// external component can run out-of-band day-2 operations (firmware/BIOS/BMC updates, diagnostics,
 	// hardware rework).
