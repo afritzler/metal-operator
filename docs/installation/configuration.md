@@ -33,6 +33,7 @@ Deployment.
 | `--bmc-failure-reset-delay` | `0s` | Reset the BMC after this duration of consecutive failures. `0` to disable. |
 | `--bmc-reset-resync-interval` | `2m` | Interval at which the BMC is polled while a reset is in progress. |
 | `--bmc-reset-waiting-interval` | `2m` | Wait time before reconciling again after a BMC reset. |
+| `--ssh-reset-timeout` | `2m` | Timeout for SSH reset operations. |
 | `--manager-namespace` | `default` | Namespace the manager is running in. |
 
 ## Discovery and registry
@@ -59,7 +60,6 @@ Deployment.
 | `--resource-polling-timeout` | `2m` | Timeout for polling resources. |
 | `--power-polling-interval` | `5s` | Interval between polling power state. |
 | `--power-polling-timeout` | `2m` | Timeout for polling power state. |
-| `--bios-setting-timeout` | `2h` | Timeout for the BIOS settings controller. |
 
 ## Observability
 
@@ -68,9 +68,6 @@ Deployment.
 | `--metrics-bind-address` | `:8080` | Address the metrics endpoint binds to. |
 | `--metrics-secure` | `true` | Serve the metrics endpoint securely. |
 | `--health-probe-bind-address` | `:8081` | Address the probe endpoint binds to. |
-| `--event-url` | `""` | URL of the server events endpoint for alerts and metrics. Falls back to the `EVENT_ADDRESS` environment variable. |
-| `--event-protocol` | `http` | Protocol for the server events endpoint. |
-| `--event-port` | `10001` | Port of the server events endpoint. |
 
 ## TLS and webhooks
 
@@ -86,7 +83,7 @@ Deployment.
 | Flag | Default | Description |
 |---|---|---|
 | `--leader-elect` | `false` | Enable leader election. Ensures only one active replica per deployment. |
-| `--kubeconfig` | `""` | Path to a kubeconfig. Only required out-of-cluster. |
+| `--skip-migrations` | `false` | Skip running any migrations before startup. |
 | `--zap-*` | | Logging flags: `--zap-devel`, `--zap-encoder`, `--zap-log-level`, `--zap-stacktrace-level`, `--zap-time-encoding`. |
 
 The authoritative, always up-to-date list is `metal-operator --help`.
