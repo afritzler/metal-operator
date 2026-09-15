@@ -11,8 +11,12 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
+<<<<<<< HEAD
+    controller-gen.kubebuilder.io/version: v0.22.0
+=======
     cert-manager.io/inject-ca-from: metal-operator-system/metal-operator-serving-cert
     controller-gen.kubebuilder.io/version: v0.21.0
+>>>>>>> tmp-original-15-09-26-02-54
   name: biossettings.metal.ironcore.dev
 spec:
   group: metal.ironcore.dev
@@ -335,8 +339,12 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
+<<<<<<< HEAD
+    controller-gen.kubebuilder.io/version: v0.22.0
+=======
     cert-manager.io/inject-ca-from: metal-operator-system/metal-operator-serving-cert
     controller-gen.kubebuilder.io/version: v0.21.0
+>>>>>>> tmp-original-15-09-26-02-54
   name: biossettingssets.metal.ironcore.dev
 spec:
   group: metal.ironcore.dev
@@ -555,8 +563,12 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
+<<<<<<< HEAD
+    controller-gen.kubebuilder.io/version: v0.22.0
+=======
     cert-manager.io/inject-ca-from: metal-operator-system/metal-operator-serving-cert
     controller-gen.kubebuilder.io/version: v0.21.0
+>>>>>>> tmp-original-15-09-26-02-54
   name: biosversions.metal.ironcore.dev
 spec:
   group: metal.ironcore.dev
@@ -822,8 +834,12 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
+<<<<<<< HEAD
+    controller-gen.kubebuilder.io/version: v0.22.0
+=======
     cert-manager.io/inject-ca-from: metal-operator-system/metal-operator-serving-cert
     controller-gen.kubebuilder.io/version: v0.21.0
+>>>>>>> tmp-original-15-09-26-02-54
   name: biosversionsets.metal.ironcore.dev
 spec:
   group: metal.ironcore.dev
@@ -1045,8 +1061,12 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
+<<<<<<< HEAD
+    controller-gen.kubebuilder.io/version: v0.22.0
+=======
     cert-manager.io/inject-ca-from: metal-operator-system/metal-operator-serving-cert
     controller-gen.kubebuilder.io/version: v0.21.0
+>>>>>>> tmp-original-15-09-26-02-54
   name: bmcs.metal.ironcore.dev
 spec:
   conversion:
@@ -1360,8 +1380,12 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
+<<<<<<< HEAD
+    controller-gen.kubebuilder.io/version: v0.22.0
+=======
     cert-manager.io/inject-ca-from: metal-operator-system/metal-operator-serving-cert
     controller-gen.kubebuilder.io/version: v0.21.0
+>>>>>>> tmp-original-15-09-26-02-54
   name: bmcsecrets.metal.ironcore.dev
 spec:
   group: metal.ironcore.dev
@@ -1441,8 +1465,12 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
+<<<<<<< HEAD
+    controller-gen.kubebuilder.io/version: v0.22.0
+=======
     cert-manager.io/inject-ca-from: metal-operator-system/metal-operator-serving-cert
     controller-gen.kubebuilder.io/version: v0.21.0
+>>>>>>> tmp-original-15-09-26-02-54
   name: bmcsettings.metal.ironcore.dev
 spec:
   group: metal.ironcore.dev
@@ -1784,8 +1812,12 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
+<<<<<<< HEAD
+    controller-gen.kubebuilder.io/version: v0.22.0
+=======
     cert-manager.io/inject-ca-from: metal-operator-system/metal-operator-serving-cert
     controller-gen.kubebuilder.io/version: v0.21.0
+>>>>>>> tmp-original-15-09-26-02-54
   name: bmcsettingssets.metal.ironcore.dev
 spec:
   group: metal.ironcore.dev
@@ -2113,8 +2145,12 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
+<<<<<<< HEAD
+    controller-gen.kubebuilder.io/version: v0.22.0
+=======
     cert-manager.io/inject-ca-from: metal-operator-system/metal-operator-serving-cert
     controller-gen.kubebuilder.io/version: v0.21.0
+>>>>>>> tmp-original-15-09-26-02-54
   name: bmcusers.metal.ironcore.dev
 spec:
   group: metal.ironcore.dev
@@ -2262,8 +2298,12 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
+<<<<<<< HEAD
+    controller-gen.kubebuilder.io/version: v0.22.0
+=======
     cert-manager.io/inject-ca-from: metal-operator-system/metal-operator-serving-cert
     controller-gen.kubebuilder.io/version: v0.21.0
+>>>>>>> tmp-original-15-09-26-02-54
   name: bmcversions.metal.ironcore.dev
 spec:
   group: metal.ironcore.dev
@@ -2530,8 +2570,12 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
+<<<<<<< HEAD
+    controller-gen.kubebuilder.io/version: v0.22.0
+=======
     cert-manager.io/inject-ca-from: metal-operator-system/metal-operator-serving-cert
     controller-gen.kubebuilder.io/version: v0.21.0
+>>>>>>> tmp-original-15-09-26-02-54
   name: bmcversionsets.metal.ironcore.dev
 spec:
   group: metal.ironcore.dev
@@ -2753,8 +2797,12 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
+<<<<<<< HEAD
+    controller-gen.kubebuilder.io/version: v0.22.0
+=======
     cert-manager.io/inject-ca-from: metal-operator-system/metal-operator-serving-cert
     controller-gen.kubebuilder.io/version: v0.21.0
+>>>>>>> tmp-original-15-09-26-02-54
   name: endpoints.metal.ironcore.dev
 spec:
   group: metal.ironcore.dev
@@ -2831,8 +2879,12 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
+<<<<<<< HEAD
+    controller-gen.kubebuilder.io/version: v0.22.0
+=======
     cert-manager.io/inject-ca-from: metal-operator-system/metal-operator-serving-cert
     controller-gen.kubebuilder.io/version: v0.21.0
+>>>>>>> tmp-original-15-09-26-02-54
   name: serverbootconfigurations.metal.ironcore.dev
 spec:
   group: metal.ironcore.dev
@@ -3001,8 +3053,12 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
+<<<<<<< HEAD
+    controller-gen.kubebuilder.io/version: v0.22.0
+=======
     cert-manager.io/inject-ca-from: metal-operator-system/metal-operator-serving-cert
     controller-gen.kubebuilder.io/version: v0.21.0
+>>>>>>> tmp-original-15-09-26-02-54
   name: serverclaims.metal.ironcore.dev
 spec:
   conversion:
@@ -3232,8 +3288,12 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
+<<<<<<< HEAD
+    controller-gen.kubebuilder.io/version: v0.22.0
+=======
     cert-manager.io/inject-ca-from: metal-operator-system/metal-operator-serving-cert
     controller-gen.kubebuilder.io/version: v0.21.0
+>>>>>>> tmp-original-15-09-26-02-54
   name: servermaintenances.metal.ironcore.dev
 spec:
   group: metal.ironcore.dev
@@ -3406,8 +3466,12 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
+<<<<<<< HEAD
+    controller-gen.kubebuilder.io/version: v0.22.0
+=======
     cert-manager.io/inject-ca-from: metal-operator-system/metal-operator-serving-cert
     controller-gen.kubebuilder.io/version: v0.21.0
+>>>>>>> tmp-original-15-09-26-02-54
   name: serverreadinessrules.metal.ironcore.dev
 spec:
   group: metal.ironcore.dev
@@ -3671,8 +3735,12 @@ apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
   annotations:
+<<<<<<< HEAD
+    controller-gen.kubebuilder.io/version: v0.22.0
+=======
     cert-manager.io/inject-ca-from: metal-operator-system/metal-operator-serving-cert
     controller-gen.kubebuilder.io/version: v0.21.0
+>>>>>>> tmp-original-15-09-26-02-54
   name: servers.metal.ironcore.dev
 spec:
   group: metal.ironcore.dev
@@ -5950,6 +6018,7 @@ spec:
         - --leader-elect
         - --metrics-cert-path=/tmp/k8s-metrics-server/metrics-certs
         - --webhook-cert-path=/tmp/k8s-webhook-server/serving-certs
+        - --webhook-port=9443
         command:
         - /manager
         env:

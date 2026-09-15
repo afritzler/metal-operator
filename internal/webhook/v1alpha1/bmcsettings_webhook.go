@@ -25,7 +25,11 @@ var bmcsettingslog = logf.Log.WithName("bmcsettings-resource")
 // SetupBMCSettingsWebhookWithManager registers the webhook for BMCSettings in the manager.
 func SetupBMCSettingsWebhookWithManager(mgr ctrl.Manager) error {
 	return ctrl.NewWebhookManagedBy(mgr, &metalv1alpha1.BMCSettings{}).
+<<<<<<< HEAD
+		WithValidator(&BMCSettingsValidator{}).
+=======
 		WithValidator(&BMCSettingsCustomValidator{Client: mgr.GetClient()}).
+>>>>>>> tmp-original-15-09-26-02-54
 		Complete()
 }
 
@@ -33,17 +37,26 @@ func SetupBMCSettingsWebhookWithManager(mgr ctrl.Manager) error {
 // Modifying the path for an invalid path can cause API server errors; failing to locate the webhook.
 // +kubebuilder:webhook:path=/validate-metal-ironcore-dev-v1alpha1-bmcsettings,mutating=false,failurePolicy=fail,sideEffects=None,groups=metal.ironcore.dev,resources=bmcsettings,verbs=create;update;delete,versions=v1alpha1,name=vbmcsettings-v1alpha1.kb.io,admissionReviewVersions=v1
 
-// BMCSettingsCustomValidator struct is responsible for validating the BMCSettings resource
+// BMCSettingsValidator struct is responsible for validating the BMCSettings resource
 // when it is created, updated, or deleted.
 //
 // NOTE: The +kubebuilder:object:generate=false marker prevents controller-gen from generating DeepCopy methods,
 // as this struct is used only for temporary operations and does not need to be deeply copied.
+<<<<<<< HEAD
+type BMCSettingsValidator struct {
+	// TODO(user): Add more fields as needed for validation
+}
+
+// ValidateCreate implements admission.Validator so a webhook will be registered for the type BMCSettings.
+func (v *BMCSettingsValidator) ValidateCreate(_ context.Context, obj *metalv1alpha1.BMCSettings) (admission.Warnings, error) {
+=======
 type BMCSettingsCustomValidator struct {
 	Client client.Client
 }
 
 // ValidateCreate implements webhook.CustomValidator so a webhook will be registered for the type BMCSettings.
 func (v *BMCSettingsCustomValidator) ValidateCreate(ctx context.Context, obj *metalv1alpha1.BMCSettings) (admission.Warnings, error) {
+>>>>>>> tmp-original-15-09-26-02-54
 	bmcsettingslog.Info("Validation for BMCSettings upon creation", "name", obj.GetName())
 
 	bmcSettingsList := &metalv1alpha1.BMCSettingsList{}
@@ -56,8 +69,13 @@ func (v *BMCSettingsCustomValidator) ValidateCreate(ctx context.Context, obj *me
 	return nil, nil
 }
 
+<<<<<<< HEAD
+// ValidateUpdate implements admission.Validator so a webhook will be registered for the type BMCSettings.
+func (v *BMCSettingsValidator) ValidateUpdate(_ context.Context, oldObj, newObj *metalv1alpha1.BMCSettings) (admission.Warnings, error) {
+=======
 // ValidateUpdate implements webhook.CustomValidator so a webhook will be registered for the type BMCSettings.
 func (v *BMCSettingsCustomValidator) ValidateUpdate(ctx context.Context, oldObj, newObj *metalv1alpha1.BMCSettings) (admission.Warnings, error) {
+>>>>>>> tmp-original-15-09-26-02-54
 	bmcsettingslog.Info("Validation for BMCSettings upon update", "name", newObj.GetName())
 
 	// Block updates while any referenced ServerMaintenance is InMaintenance.
@@ -90,8 +108,13 @@ func (v *BMCSettingsCustomValidator) ValidateUpdate(ctx context.Context, oldObj,
 	return nil, nil
 }
 
+<<<<<<< HEAD
+// ValidateDelete implements admission.Validator so a webhook will be registered for the type BMCSettings.
+func (v *BMCSettingsValidator) ValidateDelete(_ context.Context, obj *metalv1alpha1.BMCSettings) (admission.Warnings, error) {
+=======
 // ValidateDelete implements webhook.CustomValidator so a webhook will be registered for the type BMCSettings.
 func (v *BMCSettingsCustomValidator) ValidateDelete(ctx context.Context, obj *metalv1alpha1.BMCSettings) (admission.Warnings, error) {
+>>>>>>> tmp-original-15-09-26-02-54
 	bmcsettingslog.Info("Validation for BMCSettings upon deletion", "name", obj.GetName())
 
 	// Block deletion while any referenced ServerMaintenance is InMaintenance.

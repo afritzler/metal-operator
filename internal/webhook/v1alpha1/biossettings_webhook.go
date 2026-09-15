@@ -25,7 +25,11 @@ var settingsLog = logf.Log.WithName("biossettings-resource")
 // SetupBIOSSettingsWebhookWithManager registers the webhook for BIOSSettings in the manager.
 func SetupBIOSSettingsWebhookWithManager(mgr ctrl.Manager) error {
 	return ctrl.NewWebhookManagedBy(mgr, &metalv1alpha1.BIOSSettings{}).
+<<<<<<< HEAD
+		WithValidator(&BIOSSettingsValidator{}).
+=======
 		WithValidator(&BIOSSettingsCustomValidator{Client: mgr.GetClient()}).
+>>>>>>> tmp-original-15-09-26-02-54
 		Complete()
 }
 
@@ -33,8 +37,20 @@ func SetupBIOSSettingsWebhookWithManager(mgr ctrl.Manager) error {
 // Modifying the path for an invalid path can cause API server errors; failing to locate the webhook.
 // +kubebuilder:webhook:path=/validate-metal-ironcore-dev-v1alpha1-biossettings,mutating=false,failurePolicy=fail,sideEffects=None,groups=metal.ironcore.dev,resources=biossettings,verbs=create;update;delete,versions=v1alpha1,name=vbiossettings-v1alpha1.kb.io,admissionReviewVersions=v1
 
-// BIOSSettingsCustomValidator struct is responsible for validating the BIOSSettings resource
+// BIOSSettingsValidator struct is responsible for validating the BIOSSettings resource
 // when it is created, updated, or deleted.
+<<<<<<< HEAD
+//
+// NOTE: The +kubebuilder:object:generate=false marker prevents controller-gen from generating DeepCopy methods,
+// as this struct is used only for temporary operations and does not need to be deeply copied.
+type BIOSSettingsValidator struct {
+	// TODO(user): Add more fields as needed for validation
+}
+
+// ValidateCreate implements admission.Validator so a webhook will be registered for the type BIOSSettings.
+func (v *BIOSSettingsValidator) ValidateCreate(_ context.Context, obj *metalv1alpha1.BIOSSettings) (admission.Warnings, error) {
+	biossettingslog.Info("Validation for BIOSSettings upon creation", "name", obj.GetName())
+=======
 type BIOSSettingsCustomValidator struct {
 	client.Client
 }
@@ -42,6 +58,7 @@ type BIOSSettingsCustomValidator struct {
 // ValidateCreate implements webhook.CustomValidator so a webhook will be registered for the type BIOSSettings.
 func (v *BIOSSettingsCustomValidator) ValidateCreate(ctx context.Context, obj *metalv1alpha1.BIOSSettings) (admission.Warnings, error) {
 	settingsLog.Info("Validation for BIOSSettings upon creation", "name", obj.GetName())
+>>>>>>> tmp-original-15-09-26-02-54
 
 	settingsList := &metalv1alpha1.BIOSSettingsList{}
 	if err := v.List(ctx, settingsList); err != nil {
@@ -54,9 +71,15 @@ func (v *BIOSSettingsCustomValidator) ValidateCreate(ctx context.Context, obj *m
 	return nil, nil
 }
 
+<<<<<<< HEAD
+// ValidateUpdate implements admission.Validator so a webhook will be registered for the type BIOSSettings.
+func (v *BIOSSettingsValidator) ValidateUpdate(_ context.Context, oldObj, newObj *metalv1alpha1.BIOSSettings) (admission.Warnings, error) {
+	biossettingslog.Info("Validation for BIOSSettings upon update", "name", newObj.GetName())
+=======
 // ValidateUpdate implements webhook.CustomValidator so a webhook will be registered for the type BIOSSettings.
 func (v *BIOSSettingsCustomValidator) ValidateUpdate(ctx context.Context, oldObj, newObj *metalv1alpha1.BIOSSettings) (admission.Warnings, error) {
 	settingsLog.Info("Validation for BIOSSettings upon update", "name", newObj.GetName())
+>>>>>>> tmp-original-15-09-26-02-54
 
 	// Block updates while the referenced ServerMaintenance is InMaintenance.
 	if !ShouldAllowForceUpdateInProgress(newObj) && oldObj.Spec.ServerMaintenanceRef != nil {
@@ -83,9 +106,15 @@ func (v *BIOSSettingsCustomValidator) ValidateUpdate(ctx context.Context, oldObj
 	return nil, nil
 }
 
+<<<<<<< HEAD
+// ValidateDelete implements admission.Validator so a webhook will be registered for the type BIOSSettings.
+func (v *BIOSSettingsValidator) ValidateDelete(_ context.Context, obj *metalv1alpha1.BIOSSettings) (admission.Warnings, error) {
+	biossettingslog.Info("Validation for BIOSSettings upon deletion", "name", obj.GetName())
+=======
 // ValidateDelete implements webhook.CustomValidator so a webhook will be registered for the type BIOSSettings.
 func (v *BIOSSettingsCustomValidator) ValidateDelete(ctx context.Context, obj *metalv1alpha1.BIOSSettings) (admission.Warnings, error) {
 	settingsLog.Info("Validation for BIOSSettings upon deletion", "name", obj.GetName())
+>>>>>>> tmp-original-15-09-26-02-54
 
 	// Block deletion while the referenced ServerMaintenance is InMaintenance.
 	if !ShouldAllowForceDeleteInProgress(obj) && obj.Spec.ServerMaintenanceRef != nil {

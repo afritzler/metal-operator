@@ -18,6 +18,20 @@ import (
 
 var _ = Describe("BMCVersion Webhook", func() {
 	var (
+<<<<<<< HEAD
+		obj       *metalv1alpha1.BMCVersion
+		oldObj    *metalv1alpha1.BMCVersion
+		validator BMCVersionValidator
+	)
+
+	BeforeEach(func() {
+		obj = &metalv1alpha1.BMCVersion{}
+		oldObj = &metalv1alpha1.BMCVersion{}
+		validator = BMCVersionValidator{}
+		Expect(validator).NotTo(BeNil(), "Expected validator to be initialized")
+		Expect(oldObj).NotTo(BeNil(), "Expected oldObj to be initialized")
+		Expect(obj).NotTo(BeNil(), "Expected obj to be initialized")
+=======
 		BMCVersionV1 *metalv1alpha1.BMCVersion
 		validator    BMCVersionCustomValidator
 	)
@@ -41,6 +55,7 @@ var _ = Describe("BMCVersion Webhook", func() {
 		Expect(k8sClient.Create(ctx, BMCVersionV1)).To(Succeed())
 		SetClient(k8sClient)
 
+>>>>>>> tmp-original-15-09-26-02-54
 	})
 
 	AfterEach(func() {

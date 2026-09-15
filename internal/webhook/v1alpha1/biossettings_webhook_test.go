@@ -16,6 +16,20 @@ import (
 
 var _ = Describe("BIOSSettings Webhook", func() {
 	var (
+<<<<<<< HEAD
+		obj       *metalv1alpha1.BIOSSettings
+		oldObj    *metalv1alpha1.BIOSSettings
+		validator BIOSSettingsValidator
+	)
+
+	BeforeEach(func() {
+		obj = &metalv1alpha1.BIOSSettings{}
+		oldObj = &metalv1alpha1.BIOSSettings{}
+		validator = BIOSSettingsValidator{}
+		Expect(validator).NotTo(BeNil(), "Expected validator to be initialized")
+		Expect(oldObj).NotTo(BeNil(), "Expected oldObj to be initialized")
+		Expect(obj).NotTo(BeNil(), "Expected obj to be initialized")
+=======
 		biosSettingsV1                 *metalv1alpha1.BIOSSettings
 		validator                      BIOSSettingsCustomValidator
 		defaultMockUpServerBiosVersion = "P79 v1.45 (12/06/2017)"
@@ -43,6 +57,7 @@ var _ = Describe("BIOSSettings Webhook", func() {
 			},
 		}
 		Expect(k8sClient.Create(ctx, biosSettingsV1)).To(Succeed())
+>>>>>>> tmp-original-15-09-26-02-54
 	})
 
 	AfterEach(func(ctx SpecContext) {

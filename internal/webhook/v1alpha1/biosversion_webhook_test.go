@@ -15,6 +15,20 @@ import (
 
 var _ = Describe("BIOSVersion Webhook", func() {
 	var (
+<<<<<<< HEAD
+		obj       *metalv1alpha1.BIOSVersion
+		oldObj    *metalv1alpha1.BIOSVersion
+		validator BIOSVersionValidator
+	)
+
+	BeforeEach(func() {
+		obj = &metalv1alpha1.BIOSVersion{}
+		oldObj = &metalv1alpha1.BIOSVersion{}
+		validator = BIOSVersionValidator{}
+		Expect(validator).NotTo(BeNil(), "Expected validator to be initialized")
+		Expect(oldObj).NotTo(BeNil(), "Expected oldObj to be initialized")
+		Expect(obj).NotTo(BeNil(), "Expected obj to be initialized")
+=======
 		biosVersionV1 *metalv1alpha1.BIOSVersion
 		validator     BIOSVersionCustomValidator
 	)
@@ -36,6 +50,7 @@ var _ = Describe("BIOSVersion Webhook", func() {
 			},
 		}
 		Expect(k8sClient.Create(ctx, biosVersionV1)).To(Succeed())
+>>>>>>> tmp-original-15-09-26-02-54
 	})
 
 	AfterEach(func() {

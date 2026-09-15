@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+{{- if .Values.serviceAccount.enabled }}
+=======
 {{- if ne .Values.serviceAccount.enable false }}
+>>>>>>> tmp-original-15-09-26-02-54
 apiVersion: v1
 kind: ServiceAccount
 metadata:

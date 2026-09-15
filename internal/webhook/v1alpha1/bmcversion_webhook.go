@@ -25,23 +25,36 @@ var bmcversionlog = logf.Log.WithName("bmcversion-resource")
 // SetupBMCVersionWebhookWithManager registers the webhook for BMCVersion in the manager.
 func SetupBMCVersionWebhookWithManager(mgr ctrl.Manager) error {
 	return ctrl.NewWebhookManagedBy(mgr, &metalv1alpha1.BMCVersion{}).
+<<<<<<< HEAD
+		WithValidator(&BMCVersionValidator{}).
+=======
 		WithValidator(&BMCVersionCustomValidator{Client: mgr.GetClient()}).
+>>>>>>> tmp-original-15-09-26-02-54
 		Complete()
 }
 
 // +kubebuilder:webhook:path=/validate-metal-ironcore-dev-v1alpha1-bmcversion,mutating=false,failurePolicy=fail,sideEffects=None,groups=metal.ironcore.dev,resources=bmcversions,verbs=create;update;delete,versions=v1alpha1,name=vbmcversion-v1alpha1.kb.io,admissionReviewVersions=v1
 
-// BMCVersionCustomValidator struct is responsible for validating the BMCVersion resource
+// BMCVersionValidator struct is responsible for validating the BMCVersion resource
 // when it is created, updated, or deleted.
 //
 // NOTE: The +kubebuilder:object:generate=false marker prevents controller-gen from generating DeepCopy methods,
 // as this struct is used only for temporary operations and does not need to be deeply copied.
+<<<<<<< HEAD
+type BMCVersionValidator struct {
+	// TODO(user): Add more fields as needed for validation
+}
+
+// ValidateCreate implements admission.Validator so a webhook will be registered for the type BMCVersion.
+func (v *BMCVersionValidator) ValidateCreate(_ context.Context, obj *metalv1alpha1.BMCVersion) (admission.Warnings, error) {
+=======
 type BMCVersionCustomValidator struct {
 	Client client.Client
 }
 
 // ValidateCreate implements webhook.CustomValidator so a webhook will be registered for the type BMCVersion.
 func (v *BMCVersionCustomValidator) ValidateCreate(ctx context.Context, obj *metalv1alpha1.BMCVersion) (admission.Warnings, error) {
+>>>>>>> tmp-original-15-09-26-02-54
 	bmcversionlog.Info("Validation for BMCVersion upon creation", "name", obj.GetName())
 	bmcVersionList := &metalv1alpha1.BMCVersionList{}
 	if err := v.Client.List(ctx, bmcVersionList); err != nil {
@@ -53,8 +66,13 @@ func (v *BMCVersionCustomValidator) ValidateCreate(ctx context.Context, obj *met
 	return nil, nil
 }
 
+<<<<<<< HEAD
+// ValidateUpdate implements admission.Validator so a webhook will be registered for the type BMCVersion.
+func (v *BMCVersionValidator) ValidateUpdate(_ context.Context, oldObj, newObj *metalv1alpha1.BMCVersion) (admission.Warnings, error) {
+=======
 // ValidateUpdate implements webhook.CustomValidator so a webhook will be registered for the type BMCVersion.
 func (v *BMCVersionCustomValidator) ValidateUpdate(ctx context.Context, oldObj, newObj *metalv1alpha1.BMCVersion) (admission.Warnings, error) {
+>>>>>>> tmp-original-15-09-26-02-54
 	bmcversionlog.Info("Validation for BMCVersion upon update", "name", newObj.GetName())
 
 	// Block updates while any referenced ServerMaintenance is InMaintenance.
@@ -82,8 +100,13 @@ func (v *BMCVersionCustomValidator) ValidateUpdate(ctx context.Context, oldObj, 
 	return nil, nil
 }
 
+<<<<<<< HEAD
+// ValidateDelete implements admission.Validator so a webhook will be registered for the type BMCVersion.
+func (v *BMCVersionValidator) ValidateDelete(_ context.Context, obj *metalv1alpha1.BMCVersion) (admission.Warnings, error) {
+=======
 // ValidateDelete implements webhook.CustomValidator so a webhook will be registered for the type BMCVersion.
 func (v *BMCVersionCustomValidator) ValidateDelete(ctx context.Context, obj *metalv1alpha1.BMCVersion) (admission.Warnings, error) {
+>>>>>>> tmp-original-15-09-26-02-54
 	bmcversionlog.Info("Validation for BMCVersion upon deletion", "name", obj.GetName())
 
 	// Block deletion while any referenced ServerMaintenance is InMaintenance.
