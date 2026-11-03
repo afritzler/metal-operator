@@ -113,9 +113,9 @@ _Appears in:_
 
 | Field | Description | Default | Validation |
 | --- | --- | --- | --- |
-| `bmcUUID` _string_ | BMCUUID is the unique identifier for the BMC as defined in Redfish API. |  | Optional: \{\} <br />Optional: \{\} <br /> |
-| `endpointRef` _[LocalObjectReference](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.36/#localobjectreference-v1-core)_ | EndpointRef is a reference to the Endpoint object that contains the network access information for the BMC.<br />Deprecated: The Endpoint resource is deprecated. Specify the network access inline via<br />access (an InlineEndpoint carrying the MAC address and IP) instead of referencing an<br />Endpoint object. |  | Optional: \{\} <br />Optional: \{\} <br /> |
-| `access` _[InlineEndpoint](#inlineendpoint)_ | Endpoint specifies inline network access details for the BMC. |  | Optional: \{\} <br />Optional: \{\} <br /> |
+| `bmcUUID` _string_ | BMCUUID is the unique identifier for the BMC as defined in Redfish API. |  | Optional: \{\} <br /> |
+| `endpointRef` _[LocalObjectReference](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.36/#localobjectreference-v1-core)_ | EndpointRef is a reference to the Endpoint object that contains the network access information for the BMC.<br />Deprecated: The Endpoint resource is deprecated. Specify the network access inline via<br />access (an InlineEndpoint carrying the MAC address and IP) instead of referencing an<br />Endpoint object.<br />Exactly one of endpointRef or access must be set. |  | Optional: \{\} <br /> |
+| `access` _[InlineEndpoint](#inlineendpoint)_ | Endpoint specifies inline network access details for the BMC.<br />Exactly one of endpointRef or access must be set. |  | Optional: \{\} <br /> |
 | `bmcSecretRef` _[LocalObjectReference](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.36/#localobjectreference-v1-core)_ | BMCSecretRef is a reference to the BMCSecret object that contains the credentials<br />required to access the BMC. |  | Required: \{\} <br /> |
 | `protocol` _[Protocol](#protocol)_ | Protocol specifies the protocol to be used for communicating with the BMC. |  | Required: \{\} <br /> |
 | `consoleProtocol` _[ConsoleProtocol](#consoleprotocol)_ | ConsoleProtocol specifies the protocol to be used for console access to the BMC. |  | Optional: \{\} <br /> |
