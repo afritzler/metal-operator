@@ -12,9 +12,6 @@ manager:
   ## Set to false to skip manager installation
   ##
   enabled: true
-  env:
-    - name: ENABLE_WEBHOOKS
-      value: "true"
   replicas: 1
   image:
     repository: controller
@@ -26,6 +23,21 @@ manager:
   ##
   args:
     - --leader-elect
+  ## Health probes.
+  ## The manager serves the liveness (/healthz) and readiness (/readyz) endpoints on this port.
+  ##
+  healthProbe:
+    # Health probe server port
+    port: 8081
+  ## Environment variables
+  ##
+  env:
+    - name: ENABLE_WEBHOOKS
+      value: "true"
+  ## Env overrides (--set manager.envOverrides.VAR=value)
+  ## Same name in env above: this value takes precedence.
+  ##
+  envOverrides: {}
   ## Image pull secrets
   ##
   # imagePullSecrets:
@@ -81,13 +93,9 @@ manager:
   ## Termination grace period seconds
   ##
   terminationGracePeriodSeconds: 10
-  ## Health probe (matches --health-probe-bind-address, default :8081)
+  ## Custom Deployment labels
   ##
-  healthProbe:
-    port: 8081
-    ## Custom Deployment labels
-    ##
-    # labels: {}
+  # labels: {}
 ## Custom Deployment annotations
 ##
 # annotations: {}
@@ -116,9 +124,10 @@ rbac:
 ##
 serviceAccount:
   # Install default ServiceAccount provided
-  enable: true
-  ## Existing ServiceAccount name (only when enable=false)
-  ## Note: When enable=true, respects nameOverride/fullnameOverride
+  enabled: true
+  ## Existing ServiceAccount name (required when enabled=false)
+  ## Set to "default" to use the namespace default ServiceAccount
+  ## Note: When enabled=true, respects nameOverride/fullnameOverride
   ##
   # name: ""
 ## Custom ServiceAccount annotations
@@ -161,9 +170,16 @@ webhook:
 ## Requires prometheus-operator to be installed in the cluster.
 ##
 prometheus:
-  enable: false
-## Kubernetes NetworkPolicies restricting pod traffic
-## Disabled by default (no networkPolicy templates applied)
+  enabled: false
+  ## Custom ServiceMonitor labels
+  ##
+  # labels: {}
+## Custom ServiceMonitor annotations
+##
+# annotations: {}
+
+## Network policies for controlling traffic flow.
+## Enable to restrict ingress to the controller manager.
 ##
 networkPolicy:
   enabled: false
